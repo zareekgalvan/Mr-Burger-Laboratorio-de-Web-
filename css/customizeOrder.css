@@ -1,0 +1,23 @@
+#toppings > li, #sauces > li {
+    display: block;
+    float: left;
+    width: 25%;
+}
+
+#toppings, #sauces {
+	display: inline-block;
+	width: 100%;
+}
+
+.quantity {
+	width: 30px;
+}
+
+#submitOrder {
+    cursor: pointer;
+    color: white;
+    background-color: #EE7A49;
+    border: 0;
+    padding: 5px 15px;
+    font-size: 1.3em;
+}

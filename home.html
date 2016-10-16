@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mr. Burger Online Home</title>
+        <script>
+            var latestUsername = "";
+            var latestEmail = "";
+            var latestId = 0;
+        </script>
+        
+        <link href="css/homeStyles.css" type="text/css" rel="stylesheet"/>
+        <link href="css/commentStyles.css" type="text/css" rel="stylesheet"/>
+        <link href="css/customizeOrder.css" type="text/css" rel="stylesheet"/>
+        <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
+        <script src="js/mr_burger_home.js" type="text/javascript"></script>
+        <script src="js/mr_burger_comments.js" type="text/javascript"></script>
+        <script src="js/mr_burger_order_online.js" type="text/javascript"></script>
+        <script src="js/mr_burger_login.js" type="text/javascript"></script>
+        <script src="js/mr_burger_signup.js" type="text/javascript"></script>
+
+    </head>
+    <body>
+        <div id="main">
+
+            <div id="header">
+                <img src="img/mr_burger.png"> 
+                <span id="brandName"> 
+                
+                </span>
+            </div>
+
+            <div id="tabselector">
+
+                <ul id="tabs">
+                    <li id="tab1" class="tab selected">Home</li>
+                    <li id="tab2" class="tab">Order Online</li>
+                    <li id="tab4" class="tab">Leave a Comment</li>
+                    <div class="rigthtabs">
+
+                    <li id="tab5" class="tab">Log in</li> 
+                    <li id="tab6" class="tab">Sign up</li>
+                    </div>
+                </ul>
+
+                <div id="tabcontent">
+
+                    <div id="content-tab1" class="active">
+                        <span id="homeMessage">
+                            <h1>The place where you customize your own burger</h1>
+                        </span>
+                        <img id="homeBurgerImage" src="img/homeBurger.jpg"> 
+                    </div>
+
+                    <div id="content-tab2">
+                        <div id="formContent">
+                             <form onsubmit="return false">
+                                <fieldset>
+                                    <legend>Customize your own burger</legend>
+                                    <p>
+                                        <b>Choose your burger</b><br/>
+                                        <select id="typeBurger">
+                                            <option value="0">Select a type of burger</option>
+                                        </select>
+                                    </p>
+                                    <p>
+                                        <b>Choose your favorite bread</b><br/>
+                                        <select id="typeBread">
+                                           <option value="0">Select a type of bread</option>
+                                        </select>
+                                    </p>
+                                     <p>
+                                        <b>What's your preferred size?</b><br/>
+                                        <select id="sizeBurger">
+                                            <option value="0">Select a size</option>
+                                        </select>
+                                    </p>
+                                    </p>
+                                        <b>Want mayonaise?</b>
+                                        <input type="radio" name="mayo" value="Y"/>
+                                        Yes
+                                        <input type="radio" name="mayo" value="N"/>
+                                        No
+                                    </p>
+                                     </p>
+                                        <b>Want ketchup?</b>
+                                        <input type="radio" name="ketchup" value="Y"/>
+                                        Yes
+                                        <input type="radio" name="ketchup" value="N"/>
+                                        No
+                                    </p>
+                                     </p>
+                                        <b>Want mustard?</b>
+                                        <input type="radio" name="mustard" value="Y"/>
+                                        Yes
+                                        <input type="radio" name="mustard" value="N"/>
+                                        No
+                                    </p>
+                                    <p>
+                                        <b>Select your toppings!</b>
+                                        <div id="toppings">
+                                            
+                                        </div>
+                                    </p>
+                                    <p>
+                                        <b>Try your burger with any sauce!</b>
+                                        <div id="sauces">
+                                            
+                                        </div>
+                                    </p>
+                                    </p>
+                                        <b>Include Fries?</b>
+                                        <input type="radio" name="fries" value="1"/>
+                                        Yes
+                                        <input type="radio" name="fries" value="2"/>
+                                        No
+                                    </p>
+                                    <p>
+                                        <b>Quantity:</b> <input class="quantity" type="text">
+                                    </p>
+                                    <p>
+                                        <input id="submitOrder" type="submit" value="I am ready to order"/>
+                                    </p>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div id="content-tab4">
+                        <div id="content">
+                            <form>
+                                <fieldset>
+                                    <legend>Leave a Comment</legend>
+                                    <table>
+                                        <tr>
+                                            <td>Comment:</td><td><textarea id="theComment"></textarea></td>
+                                        </tr>
+                                    </table>
+                                    <input type="button" id="comment" value="Comment"/>
+                                </fieldset>
+                            </form>
+                            <h2>Comments (<span id="numberOfComments">0</span>)</h2>
+                            <div id="logOfComments">
+                            </div>
+                        </div>
+
+                        <div id="myModal" class="modal">
+
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <div id="content">
+                                    <form>
+                                        <fieldset>
+                                            <legend>Log in</legend>
+                                            <table>
+                                                <tr>
+                                                    <td>Email:</td><td><input id="loginEmail" type="email"/></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Password:</td><td><input id="loginPass" type="password"/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <input class="close" type="button" id="login" value="Log in"/>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div id="content-tab5">
+                        <div id="content">
+                            <form>
+                                <fieldset>
+                                    <legend>Log in</legend>
+                                    <table>
+                                        <tr>
+                                            <td>Email:</td><td><input id="loginEmail" type="email"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Password:</td><td><input id="loginPass" type="password"/></td>
+                                        </tr>
+                                    </table>
+                                    <input type="button" id="login" value="Log in"/>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div id="content-tab6">
+                        <div id="content">
+                            <form>
+                                <fieldset>
+                                    <legend>Sign up</legend>
+                                    <table>
+                                        <tr>
+                                            <td>Name:</td><td><input id="usernameSignup" type="text"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email:</td><td><input id="emailSignup" type="email"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Password:</td><td><input id="passSignup" type="password"/></td>
+                                        </tr>
+                                    </table>
+                                    <input type="button" id="signup" value="Sign up"/>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="footer">
+                
+            </div>
+        </div>
+    </body>
+</html>

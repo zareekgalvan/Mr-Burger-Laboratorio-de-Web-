@@ -1,0 +1,27 @@
+#comment, #login, #signup {
+    cursor: pointer; 
+    color: white;
+    background-color: #EE7A49;
+    border: 0;
+    padding: 5px 15px;
+    font-size: 1.3em;
+}
+
+.commentBox {
+    padding: 0px 15px 10px 10px;
+    border: 1px dashed #ccc;   
+    margin-bottom: 20px;
+}
+
+.commentBoxModified {
+    padding: 0px 15px 10px 70px;
+    border: 1px dashed #ccc;   
+    margin-bottom: 20px;
+}
+
+.cajacomentario p a {
+    font-size: 1.2em;
+    font-weight: 900;
+    color: #e74c3c;   
+}
+
