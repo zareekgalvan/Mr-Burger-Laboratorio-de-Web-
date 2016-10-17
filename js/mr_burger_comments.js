@@ -8,7 +8,6 @@ $( document ).ready(function() {
         contentType: "application/x-www-form-urlencoded",
         success : function(jsonResp) {
             var newHTMLContent = "";
-            console.log(jsonResp);
             for (var element in jsonResp) {
                 newHTMLContent += "<div class='commentBox cajacomentario'>";
                 newHTMLContent += "User: " + jsonResp[element].username + "<br>";

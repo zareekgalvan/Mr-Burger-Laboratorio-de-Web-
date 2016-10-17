@@ -10,6 +10,10 @@ $( document ).on('ready', function() {
         $("#tabcontent > #content-"+identificador).addClass('active');
     });
 
-    $("#brandName").html("Burgers and fries the way they were always meant to be");
+    $("#brandName").html("Burgers the way they are meant to be");
     $("#footer").html("All Right Reserved. MR BURGER CO.");
+    if ($.cookie('activeuser'))
+    {
+    	$(".loggedas").html("Currently logged as: " + $.cookie('activeusername'));
+    }
 });

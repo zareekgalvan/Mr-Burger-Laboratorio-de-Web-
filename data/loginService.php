@@ -30,6 +30,9 @@
 			while ($row = $result->fetch_assoc())
 			{
 				$response = array("id"=>$row["id"], "username"=>$row["username"], "email"=>$row["email"]);
+				setcookie("activeuser",$row["id"], time()+1728000,"/","",0);
+				setcookie("activeusername", $row["username"],time()+1728000,"/","",0);
+				setcookie("activeemail", $row["email"],time()+1728000,"/","",0);
 			}
 
 			echo json_encode($response);

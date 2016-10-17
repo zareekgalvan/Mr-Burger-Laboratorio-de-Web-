@@ -16,16 +16,19 @@ $( document ).on('ready', function() {
                 latestUsername = jsonResponse.username;
                 latestEmail = jsonResponse.email;
                 latestId = jsonResponse.id;
-                console.log(latestUsername);
-                console.log(latestEmail);
-                console.log(latestId);
+                if ($.cookie('activeuser'))
+                {
+                    $(".loggedas").html("Currently logged as: " + $.cookie('activeusername'));
+                }
                 var commentToAdd = $("#theComment").val();
                 var jsonData2 = {
                     "id" : latestId,
                     "body" : commentToAdd
                 };
 
-                $.ajax({
+                if (commentToAdd != "")
+                {
+                    $.ajax({
                     url: "data/postComment.php",
                     type: "POST",
                     data: jsonData2,
@@ -50,15 +53,44 @@ $( document ).on('ready', function() {
                     strtoadd += "User: " + latestUsername + "<br>";
                     strtoadd += "Email: " + latestEmail + "<br>";
                     strtoadd += comment;
-                    console.log(strtoadd);
                     toadd.prepend(strtoadd);
                 }
 
                 $("#theComment").val("");
+                }
             },
             error: function(errorMsg) {
                 alert(errorMsg.responseText);
-                console.log(errorMsg);
+            }
+        })
+                
+
+    })
+
+    $("#loginTabBtn").on("click", function() {
+        var jsonData = {
+            "email" : $('#loginEmailTab5').val(),
+            "password" : $("#loginPassTab5").val()
+        };
+        $.ajax({
+            url: "data/loginService.php",
+            type: "POST",
+            data: jsonData,
+            dataType: "json",
+            contentType: "application/x-www-form-urlencoded",
+            success: function(jsonResponse) {
+                alert("Welcome back " + jsonResponse.username);
+                latestUsername = jsonResponse.username;
+                latestEmail = jsonResponse.email;
+                latestId = jsonResponse.id;
+                if ($.cookie('activeuser'))
+                {
+                    $(".loggedas").html("Currently logged as: " + $.cookie('activeusername'));
+                }
+                
+            },
+            error: function(errorMsg) {
+                alert(errorMsg.responseText);
             }
         })
                 

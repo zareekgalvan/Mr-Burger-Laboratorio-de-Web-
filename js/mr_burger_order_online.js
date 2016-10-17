@@ -90,7 +90,51 @@ $( document ).on('ready', function() {
 
     // When the user clicks the button, open the modal
     btn.onclick = function() {
-        modal.style.display = "block";
+        if ($.cookie('activeuser'))
+        {
+            var commentToAdd = $("#theComment").val();
+            var jsonData3 = {
+                "id" : $.cookie('activeuser'),
+                "body" : commentToAdd
+            };
+
+            if (commentToAdd != "")
+            {
+                console.log("entreeeeee")
+                $.ajax({
+                    url: "data/postComment.php",
+                    type: "POST",
+                    data: jsonData3,
+                    dataType: "json",
+                    contentType: "application/x-www-form-urlencoded",
+                    success: function() {
+                        console.log("Comment posted")
+                    },
+                    error: function(errorMsg2) {
+                        console.log(errorMsg2);
+                    }
+
+                });
+                var comment = $("#theComment").val();
+
+                if(comment) { 
+
+                    var number = parseInt($("#numberOfComments").text());
+                    $("#numberOfComments").text(number+1);
+                    var toadd = $("#logOfComments");
+                    var strtoadd = "<div class='commentBox cajacomentario'>";
+                    strtoadd += "User: " + $.cookie('activeusername') + "<br>";
+                    strtoadd += "Email: " + $.cookie('activeemail') + "<br>";
+                    strtoadd += comment;
+                    toadd.prepend(strtoadd);
+                }
+
+                $("#theComment").val("");
+            }
+        }
+        else {
+            modal.style.display = "block";
+        }
     }
 
     // When the user clicks on <span> (x), close the modal

@@ -12,6 +12,7 @@
         <link href="css/commentStyles.css" type="text/css" rel="stylesheet"/>
         <link href="css/customizeOrder.css" type="text/css" rel="stylesheet"/>
         <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
+        <script src="js/jquery.cookie.js" type="text/javascript"></script>
         <script src="js/mr_burger_home.js" type="text/javascript"></script>
         <script src="js/mr_burger_comments.js" type="text/javascript"></script>
         <script src="js/mr_burger_order_online.js" type="text/javascript"></script>
@@ -29,7 +30,10 @@
                 </span>
             </div>
 
-            <div id="tabselector">
+             <div class="loggedas rigthtabs">
+             </div>            
+
+             <div id="tabselector">
 
                 <ul id="tabs">
                     <li id="tab1" class="tab selected">Home</li>
@@ -177,13 +181,29 @@
                                     <legend>Log in</legend>
                                     <table>
                                         <tr>
-                                            <td>Email:</td><td><input id="loginEmail" type="email"/></td>
+                                            <td>
+                                                Email:
+                                            </td>
+                                            <td>
+                                                <input id="loginEmailTab5" type="email"/>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td>Password:</td><td><input id="loginPass" type="password"/></td>
+                                            <td>
+                                                Password:
+                                            </td>
+                                            <td>
+                                                <input id="loginPassTab5" type="password"/>
+                                            </td>
                                         </tr>
                                     </table>
-                                    <input type="button" id="login" value="Log in"/>
+                                    <table>
+                                        <tr>
+                                            <input type="checkbox" name="remember"> Remember me <br>
+                                        </tr>
+                                    </table>
+                                    
+                                    <input type="button" id="loginTabBtn" value="Log in"/>
                                 </fieldset>
                             </form>
                         </div>
@@ -196,10 +216,20 @@
                                     <legend>Sign up</legend>
                                     <table>
                                         <tr>
-                                            <td>Name:</td><td><input id="usernameSignup" type="text"/></td>
+                                            <td>
+                                                Name:
+                                            </td>
+                                            <td>
+                                                <input id="usernameSignup" type="text"/>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td>Email:</td><td><input id="emailSignup" type="email"/></td>
+                                            <td>
+                                                Email:
+                                            </td>
+                                            <td>
+                                                <input id="emailSignup" type="email"/>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>Password:</td><td><input id="passSignup" type="password"/></td>
