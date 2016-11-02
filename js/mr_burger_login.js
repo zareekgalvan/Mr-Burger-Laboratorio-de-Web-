@@ -2,11 +2,12 @@ $( document ).on('ready', function() {
 
     $("#login").on("click", function() {
         var jsonData = {
+            "action" : "LOGIN",
             "email" : $('#loginEmail').val(),
             "password" : $("#loginPass").val()
         };
         $.ajax({
-            url: "data/loginService.php",
+            url: "data/appLayer.php",
             type: "POST",
             data: jsonData,
             dataType: "json",
@@ -22,6 +23,8 @@ $( document ).on('ready', function() {
                 }
                 var commentToAdd = $("#theComment").val();
                 var jsonData2 = {
+
+                    "action" : "POSTCOMM",
                     "id" : latestId,
                     "body" : commentToAdd
                 };
@@ -29,7 +32,7 @@ $( document ).on('ready', function() {
                 if (commentToAdd != "")
                 {
                     $.ajax({
-                    url: "data/postComment.php",
+                    url: "data/appLayer.php",
                     type: "POST",
                     data: jsonData2,
                     dataType: "json",
@@ -68,18 +71,20 @@ $( document ).on('ready', function() {
     })
 
     $("#loginTabBtn").on("click", function() {
-        var jsonData = {
+        var jsonData3 = {
+            "action" : "LOGIN",
             "email" : $('#loginEmailTab5').val(),
             "password" : $("#loginPassTab5").val()
         };
         $.ajax({
-            url: "data/loginService.php",
+            url: "data/appLayer.php",
             type: "POST",
-            data: jsonData,
+            data: jsonData3,
             dataType: "json",
             contentType: "application/x-www-form-urlencoded",
             success: function(jsonResponse) {
                 alert("Welcome back " + jsonResponse.username);
+                console.log(jsonResponse);
                 latestUsername = jsonResponse.username;
                 latestEmail = jsonResponse.email;
                 latestId = jsonResponse.id;
