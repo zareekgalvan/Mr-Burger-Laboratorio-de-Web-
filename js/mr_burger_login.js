@@ -84,7 +84,6 @@ $( document ).on('ready', function() {
             contentType: "application/x-www-form-urlencoded",
             success: function(jsonResponse) {
                 alert("Welcome back " + jsonResponse.username);
-                console.log(jsonResponse);
                 latestUsername = jsonResponse.username;
                 latestEmail = jsonResponse.email;
                 latestId = jsonResponse.id;

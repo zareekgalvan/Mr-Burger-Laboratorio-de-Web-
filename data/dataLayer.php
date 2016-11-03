@@ -21,9 +21,9 @@
 		$conn = connectionToDataBase();
 
 		if ($conn != null){
-			$sql = "SELECT id, username, email
+			$sql = "SELECT id, username, email, passwrd
 				FROM User
-				WHERE email = '$userEmail' AND passwrd = '$userPassword'";
+				WHERE email = '$userEmail'";
 		
 			$result = $conn->query($sql);
 
@@ -31,7 +31,7 @@
 			{
 				$row = $result->fetch_assoc();
 				$conn -> close();
-				return array("status" => "SUCCESS", "id"=>$row["id"], "username"=>$row["username"], "email"=>$row["email"]);
+				return array("status" => "SUCCESS", "id"=>$row["id"], "username"=>$row["username"], "email"=>$row["email"], "pass"=>$row["passwrd"]);
 			}
 			else{
 				$conn -> close();
